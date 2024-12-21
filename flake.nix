@@ -135,11 +135,12 @@
             zsh
 
             # ocaml packages
-            ocamlPackages.ocaml # its ocaml
-            ocamlPackages.dune_3 # build system
-            ocamlPackages.utop # fancy fancy repl
-            ocamlPackages.findlib # necessary for nixos
-            ocamlPackages.merlin # pseudo-lsp
+            ocamlPackages.ocaml
+            ocamlPackages.dune_3
+            ocamlPackages.utop
+            ocamlPackages.findlib
+            ocamlPackages.merlin
+            ocamlPackages.ocamlformat
           ];
         };
       }
