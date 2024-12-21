@@ -1,10 +1,16 @@
 #+TITLE:
 
 * Configuration files
+** dir-locals
+
+#+begin_src emacs-lisp :tangle .dir-locals.el
+  ((nix-mode . ((format-all-formatters (("Nix" . nixfmt))))))
+#+end_src
 ** gitignore
 
 #+begin_src fundamental :tangle .gitignore
   .direnv/
+  _build/**
 #+end_src
 ** envrc
 
