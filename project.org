@@ -3,12 +3,6 @@
 Tangle this file to bootstrap your emacs configuration
 
 * Configuration files
-** dir-locals
-
-#+begin_src emacs-lisp :tangle .dir-locals.el
-    ((nix-mode . ((format-all-formatters (("Nix" . nixfmt)
-                                          ("OCaml" . ocamlformat))))))
-#+end_src
 ** gitignore
 
 #+begin_src fundamental :tangle .gitignore
