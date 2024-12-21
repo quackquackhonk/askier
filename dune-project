@@ -5,7 +5,7 @@
 (generate_opam_files true)
 
 (source
- (github quackquackhonk/))
+ (github quackquackhonk/askier))
 
 (authors "Sahana Tankala <sahanatankala@gmail.com>")
 
