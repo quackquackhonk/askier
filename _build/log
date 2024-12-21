@@ -1,0 +1,6 @@
+# dune init project ASkier .
+# OCAMLPARAM: unset
+# Shared cache: enabled-except-user-rules
+# Shared cache location: /home/sahana/.cache/dune/db
+# Workspace root: /home/sahana/code/skier
+# Auto-detected concurrency: 16
