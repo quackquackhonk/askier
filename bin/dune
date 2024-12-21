@@ -1,4 +1,4 @@
 (executable
- (public_name ASkier)
+ (public_name askier)
  (name main)
- (libraries ASkier))
+ (libraries askier))

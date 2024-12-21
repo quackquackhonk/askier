@@ -1,26 +1,22 @@
 (lang dune 3.17)
 
-(name ASkier)
+(name askier)
 
 (generate_opam_files true)
 
 (source
- (github username/reponame))
+ (github quackquackhonk/))
 
-(authors "Author Name <author@example.com>")
+(authors "Sahana Tankala <sahanatankala@gmail.com>")
 
-(maintainers "Maintainer Name <maintainer@example.com>")
+(maintainers "Sahana Tankala <sahantankala@gmail.com>")
 
-(license LICENSE)
-
-(documentation https://url/to/documentation)
+; (documentation https://url/to/documentation)
 
 (package
- (name ASkier)
- (synopsis "A short synopsis")
- (description "A longer description")
+ (name askier)
+ (synopsis "An ASCII Renderer")
+ (description "A cheeky project for me to learn some basic OCaml")
  (depends ocaml)
- (tags
-  ("add topics" "to describe" your project)))
 
 ; See the complete stanza docs at https://dune.readthedocs.io/en/stable/reference/dune-project/index.html

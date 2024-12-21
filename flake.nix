@@ -1,5 +1,5 @@
 {
-  description = "A flake for running and building ASkier";
+  description = "A flake for running and building askier";
   inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
   inputs.systems.url = "github:nix-systems/default";
   inputs.flake-utils = {
@@ -17,7 +17,7 @@
         ocamlPackages = pkgs.ocamlPackages;
       in
         {
-          # Main ASkier package
+          # Main askier package
           # run with:
           #     nix build
           #     nix run -- args...
@@ -25,7 +25,7 @@
             default = self.packages.${system}.askier;
 
             askier = ocamlPackages.buildDunePackage {
-              pname = "ASkier";
+              pname = "askier";
               version = "0.1.0";
               duneVersion = "3";
               src = ./.;
@@ -136,6 +136,8 @@
             # ocaml packages
             ocamlPackages.ocaml
             ocamlPackages.dune_3
+            ocamlPackages.utop
+            ocamlPackages.findlib
           ];
         };
     }
