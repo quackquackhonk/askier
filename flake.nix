@@ -23,6 +23,7 @@
 
         buildInputs = [
           # Add library dependencies here
+          ocamlPackages.camlimages
         ];
 
         nativeBuildInputs = with pkgs; [

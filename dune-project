@@ -3,6 +3,7 @@
 (name askier)
 
 (generate_opam_files true)
+(opam_file_location inside_opam_directory)
 
 (source
  (github quackquackhonk/askier))
@@ -17,6 +18,6 @@
  (name askier)
  (synopsis "An ASCII Renderer")
  (description "A cheeky project for me to learn some basic OCaml")
- (depends ocaml))
+ (depends ocaml camlimages))
 
 ; See the complete stanza docs at https://dune.readthedocs.io/en/stable/reference/dune-project/index.html
