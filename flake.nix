@@ -1,65 +1,36 @@
 {
-  description = "A flake for running and building askier";
-  inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-  inputs.systems.url = "github:nix-systems/default";
-  inputs.flake-utils = {
-    url = "github:numtide/flake-utils";
-    inputs.systems.follows = "systems";
+  description = "Go Template";
+
+  inputs = {
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    flake-utils.url = "github:numtide/flake-utils";
   };
 
-  outputs =
-    {
-      self,
-      nixpkgs,
-      flake-utils,
-      ...
-    }:
+  outputs = {
+    nixpkgs,
+    flake-utils,
+    ...
+  }:
     flake-utils.lib.eachDefaultSystem (
-      system:
-      let
-        lib = nixpkgs.lib;
+      system: let
         pkgs = nixpkgs.legacyPackages.${system};
-        ocamlPackages = pkgs.ocamlPackages;
-
-        buildInputs = [
-          # Add library dependencies here
-          ocamlPackages.camlimages
-        ];
 
         nativeBuildInputs = with pkgs; [
-          zsh
-
-          # ocaml packages
-          ocamlPackages.ocaml
-          ocamlPackages.dune_3
-          ocamlPackages.utop
-          ocamlPackages.findlib
-          ocamlPackages.merlin
-          ocamlPackages.ocamlformat
+          go
+          gopls
         ];
+        buildInputs = with pkgs; [];
+      in {
+        devShells.default = pkgs.mkShell {inherit nativeBuildInputs buildInputs;};
 
-      in
-      {
-        # Main askier package
-        # run with:
-        #     nix build
-        #     nix run -- args...
-        packages = {
-          default = self.packages.${system}.askier;
+        packages.default = pkgs.buildGoModule rec {
+          name = "template";
+          src = ./.;
 
-          askier = ocamlPackages.buildDunePackage {
-            pname = "askier";
-            version = "0.1.0";
-            duneVersion = "3";
-            src = ./.;
+          inherit buildInputs;
 
-            strictDeps = true;
-
-            inherit nativeBuildInputs buildInputs;
-          };
+          vendorHash = null;
         };
-
-        devShells.default = pkgs.mkShell { inherit nativeBuildInputs buildInputs; };
       }
     );
 }
